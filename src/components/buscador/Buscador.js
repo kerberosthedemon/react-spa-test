@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 
 class Buscador extends Component{
-    state = {
-        textoBusqueda: ''
-    }
+    
+    state = { textoBusqueda: '' };
 
-    handleSubmit = (event) => {
+    manejarSubmit = (event) => {
         event.preventDefault();
-        // this.props.buscar(this.state.textoBusqueda);
-        this.fetchPokemon(this.props.pokemonAPI_url + this.state.textoBusqueda);
+        this.props.manejarSubmit(this.state.textoBusqueda);
     };
-
-    fetchPokemon = (request) => {
-        fetch(request)
-            .then((resp) => resp.json())
-            .then(response => {
-                this.props.mostrarPokemon(response);
-            });
-    }
 
     render(){
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.manejarSubmit}>
                 <input type="textbox"
+                 placeholder="ingrese un nombre o numero"
                  value={this.state.textoBusqueda}
                  onChange={(event) => this.setState({textoBusqueda: event.target.value})} />
 

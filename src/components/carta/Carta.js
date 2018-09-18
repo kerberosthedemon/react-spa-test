@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Carta = (props) => {
-    if(props === {}) return(<div></div>);
+    if(!props.pokemonSeleccionado.valido()) return(<div></div>);
 
     return(
         <div>
-            <span>#{props.id} - {props.name}</span>
-            <img alt='' src={props.sprites.front_default} />
+            <span>#{props.pokemonSeleccionado.id} - {props.pokemonSeleccionado.name}</span>
+            <img alt='' src={props.pokemonSeleccionado.sprite_default} />
         </div>
     );
 }
