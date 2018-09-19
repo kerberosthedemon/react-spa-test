@@ -1,28 +1,19 @@
-.App {
+@import '../../index.css';
+
+.App{
   text-align: center;
+  height: 10em;
+  background: white;
+  margin: 0px 4em;
+  border-radius: .3rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.Background{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b522f9+0,3d42db+100 */
+background: #b522f9; /* Old browsers */
+background: -moz-linear-gradient(45deg, #b522f9 0%, #3d42db 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #b522f9 0%,#3d42db 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #b522f9 0%,#3d42db 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b522f9', endColorstr='#3d42db',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+height: inherit;
+};

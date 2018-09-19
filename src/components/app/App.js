@@ -21,9 +21,11 @@ class App extends Component{
 
   render(){
     return(
-      <div>
-        <Buscador manejarSubmit={this.buscarPokemon}/>
-        <Carta pokemonSeleccionado={this.state.pokemonSeleccionado}/>
+      <div className="Background">
+        <div className="App">
+          <Buscador manejarSubmit={this.buscarPokemon}/>
+          <Carta pokemonSeleccionado={this.state.pokemonSeleccionado}/>
+        </div>
       </div>
     );
   };
