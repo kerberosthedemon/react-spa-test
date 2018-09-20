@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Buscador from '../buscador/Buscador';
 import Carta from '../carta/Carta';
 import FichaPokemon from '../model/FichaPokemon';
-import { Card, CardContent, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Card, CardContent } from '@material-ui/core';
+import HeaderMenu from './../headerMenu/HeaderMenu';
 
 const style = {
   Title:{
@@ -21,7 +22,7 @@ export default class App extends Component{
   state = { pokemonSeleccionado: new FichaPokemon({}) };
 
   buscarPokemon = (textoBusqueda) => {
-    fetch(this.pokemonAPI_url + textoBusqueda + "/")
+    fetch(this.pokemonAPI_url + textoBusqueda.toLowerCase() + "/")
      .then((resp) => resp.json())
       .then((data) => { this.setearFichaPokemon(new FichaPokemon(data)); });
   };
@@ -33,11 +34,7 @@ export default class App extends Component{
   render(){
     return(
       <React.Fragment> 
-        <AppBar position="relative" style={{backgroundColor: '#0f0f0f'}}>
-          <Toolbar variant="dense">
-            <Typography variant="title" style={style.Title}>Pokedéx</Typography>
-          </Toolbar>
-        </AppBar>       
+        <HeaderMenu/>    
         <Card style={style.Card}>
           <CardContent>
             <Buscador manejarSubmit={this.buscarPokemon}/>

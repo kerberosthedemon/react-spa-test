@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { Card, CardContent, Grid, TextField } from '@material-ui/core';
+import { Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
+import TextoTipo from './../textoTipo/TextoTipo';
 
 const style ={
     Card:{
@@ -22,6 +23,12 @@ const Carta = (props) => {
                         
                         <Grid item>
                             <TextField variant="outlined" inputProps={{readOnly: true}} label="Nombre" value={props.pokemonSeleccionado.name}></TextField>
+                        </Grid>
+
+                        <Grid item>
+                            <Typography variant="outlined"  label="Tipo">
+                                {props.pokemonSeleccionado.types.map(tipo => { return <TextoTipo texto={tipo}/> })}
+                            </Typography>
                         </Grid>
 
                         <Grid item>

@@ -1,15 +1,23 @@
 class FichaPokemon{
     constructor(obj){
         this.id = obj.id;
-        this.name = this.toUpper(obj.name);
+        this.name = this.capitalizarPrimerLetra(obj.name);
         this.sprites = obj.sprites;
+        this.types = this.obtenerTipos(obj.types);
     }
 
-    toUpper(text){
+    capitalizarPrimerLetra(text){
         if(text !== null && text !== undefined && text !== ""){
             return text = text.charAt(0).toUpperCase() + text.slice(1);
         }
         return text;
+    }
+
+    obtenerTipos(types){
+        if(types !== undefined && types !== null)
+            return types.map(element => this.capitalizarPrimerLetra(element.type.name));
+
+        return null;
     }
 
     valido(){
