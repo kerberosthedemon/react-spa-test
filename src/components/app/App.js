@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
 import Buscador from '../buscador/Buscador';
 import Carta from '../carta/Carta';
 import FichaPokemon from '../model/FichaPokemon';
-class App extends Component{
+import { Card, CardContent, AppBar, Toolbar, Typography } from '@material-ui/core';
 
-  pokemonAPI_url = "https://pokeapi.co/api/v2/pokemon/";
+const style = {
+  Title:{
+    color: 'white',
+  },
+  Card:{
+    margin: '8px',
+    height: '100%',
+    borderRadius: '0',
+  }
+};
+export default class App extends Component{
+
+  pokemonAPI_url = "http://pokeapi.salestock.net/api/v2/pokemon/";
 
   state = { pokemonSeleccionado: new FichaPokemon({}) };
 
@@ -21,14 +32,20 @@ class App extends Component{
 
   render(){
     return(
-      <div className="Background">
-        <div className="App">
-          <Buscador manejarSubmit={this.buscarPokemon}/>
+      <React.Fragment> 
+        <AppBar position="relative" style={{backgroundColor: '#0f0f0f'}}>
+          <Toolbar variant="dense">
+            <Typography variant="title" style={style.Title}>Pokedéx</Typography>
+          </Toolbar>
+        </AppBar>       
+        <Card style={style.Card}>
+          <CardContent>
+            <Buscador manejarSubmit={this.buscarPokemon}/>
+          </CardContent>
           <Carta pokemonSeleccionado={this.state.pokemonSeleccionado}/>
-        </div>
-      </div>
+        </Card>
+        
+      </React.Fragment>
     );
   };
 }
-
-export default App;

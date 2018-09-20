@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import "./Buscador.css"
+import Button from '@material-ui/core/Button';
+import { TextField } from '@material-ui/core';
 class Buscador extends Component{
     
     state = { textoBusqueda: '' };
@@ -12,12 +13,10 @@ class Buscador extends Component{
     render(){
         return (
             <form onSubmit={this.manejarSubmit}>
-                <input type="textbox"
-                 placeholder="ingrese un nombre o numero"
-                 value={this.state.textoBusqueda}
-                 onChange={(event) => this.setState({textoBusqueda: event.target.value})} />
+                <TextField required label="Nombre o Numero" value={this.state.textoBusqueda} 
+                    onChange={(event) => this.setState({textoBusqueda: event.target.value})} />
 
-                <button type="submit">Buscar</button>
+                <Button color="primary" type="submit">Buscar</Button>
             </form>
         )
     }

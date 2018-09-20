@@ -1,8 +1,15 @@
 class FichaPokemon{
     constructor(obj){
         this.id = obj.id;
-        this.name = obj.name;
-        this.sprite_default = obj.sprites ? obj.sprites.front_default : null;
+        this.name = this.toUpper(obj.name);
+        this.sprites = obj.sprites;
+    }
+
+    toUpper(text){
+        if(text !== null && text !== undefined && text !== ""){
+            return text = text.charAt(0).toUpperCase() + text.slice(1);
+        }
+        return text;
     }
 
     valido(){
@@ -10,7 +17,7 @@ class FichaPokemon{
             return false;
         if(this.name === null || this.name === undefined)
             return false;
-        if(this.sprite_default === null || this.sprite_default === undefined)
+        if(this.sprites === null || this.sprites === undefined)
             return false;
 
         return true;
