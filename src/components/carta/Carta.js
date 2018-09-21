@@ -26,9 +26,9 @@ const Carta = (props) => {
                         </Grid>
 
                         <Grid item>
-                            <TextField variant="outlined"  label="Tipo" InputProps={{ startAdornment: (
+                            <TextField variant="outlined"  label="Tipo" inputProps={{readOnly: true, style:{ visibility: 'collapse', width: '0' }}} InputProps={{ startAdornment: (
                                 <InputAdornment position="start">
-                                    {props.pokemonSeleccionado.types.map(tipo => { return <TextoTipo texto={tipo}/> })}
+                                    {props.pokemonSeleccionado.types.map((tipo, i) => { return <TextoTipo texto={tipo}/> })}
                                 </InputAdornment>
                             )}}/>
                         </Grid>

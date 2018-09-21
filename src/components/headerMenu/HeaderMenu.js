@@ -7,7 +7,7 @@ const style = {
     },
 }
 
-const HeaderMenu = (props) => {
+const HeaderMenu = () => {
     return(
         <AppBar position="relative" style={{backgroundColor: '#0f0f0f'}}>
           <Toolbar variant="dense">

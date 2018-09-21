@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Buscador from '../buscador/Buscador';
 import Carta from '../carta/Carta';
 import FichaPokemon from '../model/FichaPokemon';
-import { Card, CardContent, Collapse, Grow, Zoom } from '@material-ui/core';
+import { Card, CardContent, Collapse, Zoom } from '@material-ui/core';
 import HeaderMenu from './../headerMenu/HeaderMenu';
-import Fade from '@material-ui/core/Fade';
 
 const style = {
   Title:{
