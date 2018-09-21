@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Buscador from '../buscador/Buscador';
 import Carta from '../carta/Carta';
 import FichaPokemon from '../model/FichaPokemon';
-import { Card, CardContent } from '@material-ui/core';
+import { Card, CardContent, Collapse, Grow, Zoom } from '@material-ui/core';
 import HeaderMenu from './../headerMenu/HeaderMenu';
+import Fade from '@material-ui/core/Fade';
 
 const style = {
   Title:{
@@ -19,7 +20,10 @@ export default class App extends Component{
 
   pokemonAPI_url = "http://pokeapi.salestock.net/api/v2/pokemon/";
 
-  state = { pokemonSeleccionado: new FichaPokemon({}) };
+  state = { 
+    pokemonSeleccionado: new FichaPokemon({}),
+    mostrar:false,
+  };
 
   buscarPokemon = (textoBusqueda) => {
     fetch(this.pokemonAPI_url + textoBusqueda.toLowerCase() + "/")
@@ -28,7 +32,10 @@ export default class App extends Component{
   };
 
   setearFichaPokemon = (fichaPokemon) => {
-    this.setState({ pokemonSeleccionado: fichaPokemon });
+    this.setState((prevState) => {return { 
+      pokemonSeleccionado: fichaPokemon.valido() ? fichaPokemon : prevState.pokemonSeleccionado,
+      mostrar: fichaPokemon.valido(),
+     };});
   };
 
   render(){
@@ -39,7 +46,11 @@ export default class App extends Component{
           <CardContent>
             <Buscador manejarSubmit={this.buscarPokemon}/>
           </CardContent>
-          <Carta pokemonSeleccionado={this.state.pokemonSeleccionado}/>
+          <Collapse in={this.state.mostrar}>
+            <Zoom in={this.state.mostrar}>
+              <Carta pokemonSeleccionado={this.state.pokemonSeleccionado}/>
+            </Zoom>
+          </Collapse>
         </Card>
         
       </React.Fragment>

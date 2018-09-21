@@ -1,239 +1,40 @@
 import React from 'react';
 
+class EstiloTipo{
+    constructor(background, borderTopColor, borderBottomColor){
+        this.background = background;
+        this.borderStyle = 'solid none';
+        this.borderWidth = '1px';
+        this.borderTopColor = borderTopColor;
+        this.borderBottomColor = borderBottomColor;
+        this.borderRadius = '5px';
+        this.padding = '0.15em';
+        this.fontSize = '9pt';
+        this.color = '#F8F8F8';
+        this.textShadow = '0px 1px 1px #807870';
+        this.marginRight = '2px'
+    }
+}
+
 const style = {
-    normal: {
-        background: '#A8A878',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#D8D8D0',
-        borderBottomColor: '#705848',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    fuego: {
-        background: '#F08030',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#F8D030',
-        borderBottomColor: '#C03028',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    agua:{
-        background: '#6890F0',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#98D8D8',
-        borderBottomColor: '#807870',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    electrico:{
-        background: '#F8D030',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#F8F878',
-        borderBottomColor: '#B8A038',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    pasto:{
-        background: '#78C850',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#C0F860',
-        borderBottomColor: '#588040',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    volador:{
-        background: '#A890F0',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#C8C0F8',
-        borderBottomColor: '#705898',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    piedra:{
-        background: '#B8A038',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#E0C068',
-        borderBottomColor: '#886830',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    acero:{
-        background: '#B8B8D0',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#D8D8C0',
-        borderBottomColor: '#807870',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    tierra:{
-        background: '#E0C068',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#F8F878',
-        borderBottomColor: '#886830',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    insecto:{
-        background: '#A8B820',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#D8E030',
-        borderBottomColor: '#626C12',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    veneno:{
-        background: '#A040A0',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#D880B8',
-        borderBottomColor: '#483850',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    hielo:{
-        background: '#98D8D8',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#D0F8E8',
-        borderBottomColor: '#9090A0',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    lucha:{
-        background: '#C03028',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#F08030',
-        borderBottomColor: '#484038',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    psiquico:{
-        background: '#F85888',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#F8C0B0',
-        borderBottomColor: '#789010',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    oscuridad:{
-        background: '#705848',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#A8A878',
-        borderBottomColor: '#484038',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    fantasma:{
-        background: '#705898',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#A890F0',
-        borderBottomColor: '#483850',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    dragon:{
-        background: '#7038F8',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#B8A0F8',
-        borderBottomColor: '#483890',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
-
-    hada:{
-        background: '#F0B6BC',
-        borderStyle: 'solid none',
-        borderWidth: '1px',
-        borderTopColor: '#F5CAD1',
-        borderBottomColor: '#905F63',
-        borderRadius: '5px',
-        padding: '0.15em',
-        fontSize: '9pt',
-        color: '#F8F8F8',
-        textShadow: '0px 1px 1px #807870',
-    },
+    normal: new EstiloTipo('#A8A878', '#D8D8D0', '#705848'),
+    fuego: new EstiloTipo('#F08030','#F8D030', '#C03028'),
+    agua: new EstiloTipo('#6890F0','#98D8D8', '#807870'),
+    electrico: new EstiloTipo('#F8D030','#F8F878', '#B8A038'),
+    pasto: new EstiloTipo('#78C850','#C0F860', '#588040'),
+    volador: new EstiloTipo('#A890F0','#C8C0F8', '#705898'),
+    piedra: new EstiloTipo('#B8A038','#E0C068', '#886830'),
+    acero: new EstiloTipo('#B8B8D0','#D8D8C0', '#807870'),
+    tierra: new EstiloTipo('#E0C068','#F8F878', '#886830'),
+    insecto: new EstiloTipo('#A8B820','#D8E030', '#626C12'),
+    veneno: new EstiloTipo('#A040A0','#D880B8', '#483850'),
+    hielo: new EstiloTipo('#98D8D8','#D0F8E8', '#9090A0'),
+    lucha: new EstiloTipo('#C03028','#F08030', '#484038'),
+    psiquico: new EstiloTipo('#F85888','#F8C0B0', '#789010'),
+    oscuridad: new EstiloTipo('#705848','#A8A878', '#484038'),
+    fantasma: new EstiloTipo('#705898','#A890F0', '#483850'),
+    dragon: new EstiloTipo('#7038F8','#B8A0F8', '#483890'),
+    hada: new EstiloTipo('#F0B6BC','#F5CAD1', '#905F63'),
 };
 
 const TextoTipo = (props) =>{

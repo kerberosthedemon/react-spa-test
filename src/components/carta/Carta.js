@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
+import React from 'react';
+import { Card, CardContent, Grid, TextField, InputAdornment } from '@material-ui/core';
 import TextoTipo from './../textoTipo/TextoTipo';
 
 const style ={
@@ -10,10 +10,10 @@ const style ={
 }
 
 const Carta = (props) => {
-    if(!props.pokemonSeleccionado.valido()) return(<Fragment></Fragment>);
+    if(!props.pokemonSeleccionado.valido()) return(<span></span>);
 
     return(
-        <CardContent>
+        <CardContent style={props.style}>
             <Card style={style.Card}>
                 <CardContent>
                     <Grid container alignItems="center" style={style.Grid} spacing={24}>
@@ -26,9 +26,11 @@ const Carta = (props) => {
                         </Grid>
 
                         <Grid item>
-                            <Typography variant="outlined"  label="Tipo">
-                                {props.pokemonSeleccionado.types.map(tipo => { return <TextoTipo texto={tipo}/> })}
-                            </Typography>
+                            <TextField variant="outlined"  label="Tipo" InputProps={{ startAdornment: (
+                                <InputAdornment position="start">
+                                    {props.pokemonSeleccionado.types.map(tipo => { return <TextoTipo texto={tipo}/> })}
+                                </InputAdornment>
+                            )}}/>
                         </Grid>
 
                         <Grid item>
